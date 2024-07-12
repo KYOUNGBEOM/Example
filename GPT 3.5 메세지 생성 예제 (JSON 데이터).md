@@ -1,3 +1,4 @@
+```java
 package web.controller;
 
 import java.io.BufferedReader;
@@ -89,3 +90,4 @@ public class MyServlet extends HttpServlet {
         out.println(content);
     }
 }
+```
