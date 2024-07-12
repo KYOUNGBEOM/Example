@@ -12,9 +12,9 @@ import jakarta.servlet.http.HttpServletResponse;
 public class MyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public MyServlet() {
-        super();
-    }
+   	 public MyServlet() {
+        	super();
+    	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8"); // 한글 처리
