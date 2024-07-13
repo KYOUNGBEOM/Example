@@ -24,7 +24,7 @@ public class MyServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8"); // 한글 처리
-		PrintWriter out = response.getWriter(); // PrintWriter를 통해 서블릿이 클라이언트(웹브라우저)로 데이터 전송 
+		PrintWriter out = response.getWriter(); // response 로부터 printerWriter 객체를 가져와 서블릿이 클라이언트(웹브라우저)로 데이터 전송 
 		out.println("doPost 호출됨");
 	}
 
