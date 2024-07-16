@@ -34,11 +34,11 @@ class RestApiApplicationTests {
 ```
 
 	1. Object Mapper는 직렬화를 할때 변수에 매칭되는 것이 아니라, get 메서드에 매핑됨
-	   반면 역직렬화를 할때는 기본적으로 클래스 내 변수 + set 메서드에 매핑되고, set 메서드가 없다면 get 메서드에 매핑
+	   반면 역직렬화를 할때는 set 메서드, get 메서드, @JsonProperty("")를 통해 매핑가능
  	
   	2. get메서드를 매핑하고 싶지 않으면 @JsonIgnore를 사용해야함
 
-   	3. 만약 직렬화되는 변수명을 변경하고 싶거나 Json데이터 변수명과 클래스의 변수명이 맞지 않을경 @JsonProperty("") 사용
+   	3. 만약 직렬화되는 변수명을 변경하고 싶거나 Json데이터 변수명과 클래스 내의 변수명이 맞지 않을 경우 @JsonProperty("") 사용
 
 ```java
 package com.example.rest_api;
