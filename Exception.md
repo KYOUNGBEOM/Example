@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 // @RestController가 사용되는 곳에서 발생하는 예외를 감지하고 처리
+// basePackages = "", 속성 사용하여 특정 패키지에서 발생하는 예외만 처리 가
 @RestControllerAdvice
 public class RestApiExceptionHandler {
 
