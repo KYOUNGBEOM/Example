@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
-// RestApi가 사용되는 곳에서 발생하는 예외를 감지
+// @RestController가 사용되는 곳에서 발생하는 예외를 감지하고 처리
 @RestControllerAdvice
 public class RestApiExceptionHandler {
 
