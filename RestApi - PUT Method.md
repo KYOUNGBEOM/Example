@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class PutApiController {
 
-    // post와 put 매핑 모두 데이터가 없으면 생성하지만, put매핑만이 데이터가 존재할 경우 데이터를 업데이트
+    // post와 put 매핑 모두 데이터가 없으면 생성하지만, put 매핑만이 데이터가 존재할 경우 데이터를 업데이트
     @PutMapping("/put")
     public void put(
             @RequestBody UserRequest userRequest
@@ -45,7 +45,6 @@ public class UserRequest {
     private int userAge;
 
     private String email;
-
 
     // boolean 타입으로 설정시 setKorean(), Boolean 타입으로 설정시 setIsKorean()
     private Boolean isKorean;
