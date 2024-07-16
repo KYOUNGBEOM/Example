@@ -108,7 +108,7 @@ public class UserRequest {
         return email;
     }
 
-    @JsonIgnore
+    // @JsonIgnore
     public String getName() {
         return userName;
     }
