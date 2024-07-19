@@ -22,8 +22,22 @@ public class Shape {
 ```
 
 ```java
-public class Shape {
-	public void getArea() {}
+public class Circle extends Shape {
+    private int radius;
+    
+    public Circle(int radius) {
+    	super();
+    	if(radius>0) {
+    		this.radius = radius;
+    	} else {
+    		System.out.println("0보다 커야합니다.");
+    	}    	
+    }
+
+    public void getArea(){
+    	System.out.println("Circle의 넓이는 " + (Math.PI*radius*radius));
+    }
+    
 }
 ```
 
