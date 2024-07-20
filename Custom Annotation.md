@@ -54,3 +54,69 @@ public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, St
     }
 }
 ```
+
+```java
+package com.example.validation.annotation;
+
+import com.example.validation.validator.YearMonthValidator;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
+import jakarta.validation.constraints.NotBlank;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+@Constraint(validatedBy = YearMonthValidator.class)
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@NotBlank
+public @interface YearMonth{
+
+    String message() default "날짜 양식에 맞지 않습니다 ex) 204207";
+
+    String pattern() default "yyyyMM";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+}
+```
+
+```java
+package com.example.validation.validator;
+
+import com.example.validation.annotation.YearMonth;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
+public class YearMonthValidator implements ConstraintValidator<YearMonth, String> {
+
+    private String pattern;
+
+    @Override
+    public void initialize(YearMonth constraintAnnotation) {
+        this.pattern = constraintAnnotation.pattern();
+    }
+
+    @Override
+    public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
+
+        var reValue = value+"01";
+        var rePattern = pattern+"dd";
+
+        try {
+            LocalDate date = LocalDate.parse(reValue, DateTimeFormatter.ofPattern(rePattern));
+            System.out.println(date);
+            return true;
+        }catch(Exception e) {
+            return false;
+        }
+    }
+}
+```
