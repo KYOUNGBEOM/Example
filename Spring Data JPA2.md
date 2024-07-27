@@ -25,8 +25,6 @@ public class UserEntity {
     private String name;
 
     private int score;
-
-
 }
 ```
 
@@ -58,6 +56,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
     )
     List<UserEntity> score(int min, int max);
 
+    // param
     @Query(
             value = "select * from user as u where u.score >= :min AND u.score <= :max",
             nativeQuery = true
