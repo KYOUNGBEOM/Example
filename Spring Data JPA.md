@@ -26,12 +26,17 @@ services:
 ```java
 spring:
   jpa:
-    show-sql: true
+    show-sql: true // sql문이 실행될 때마다 console에 쿼리가 출
     properties:
-      format_sql: true
+      format_sql: true // sql문이 실행될 때마다 console에 포맷이 출력
       dialect: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: validate
+      // 옵션
+      // 1. validate : entity와 데이터베이스 내의 컬럼이 일치하는지 확인
+      // 2. create : 서버가 올라갈때마다 테이블을 생성
+      // 3. create-drop : 서버가 올라갈때 테이블을 생성하고, 서버가 내려가면 테이블을 drop
+      // 4. update : 데이터베이스의 칼럼과 entity를 비교하교 일치하지 않는 부분이 있으면 컬럼을 추가
+      ddl-auto: validate 
   datasource:
     url: jdbc:mysql://localhost:3306/user?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
