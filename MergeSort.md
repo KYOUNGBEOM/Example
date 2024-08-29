@@ -76,3 +76,72 @@ public class MergeSort {
     }
 }
 ```
+
+```java
+package 박경범;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class A055_SWEA_14229_백만개의정수정렬 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String[] input = br.readLine().split(" ");
+		int[] A = new int[input.length];
+
+
+		for(int i = 0; i < input.length; i++) {
+			A[i] = Integer.parseInt(input[i]);
+		}
+
+		mergeSort(A, 0, A.length-1);
+
+		System.out.println(A[500000]);
+
+	}
+
+	public static void mergeSort(int[] arr, int left, int right) {
+		if(left < right) {
+			int mid = (left + right) / 2;
+
+			mergeSort(arr, left, mid);
+			mergeSort(arr, mid+1, right);
+			merge(arr, left, mid, right);
+
+		}
+	}
+
+	public static void merge(int[] arr, int left, int mid, int right) {
+		int N1 = mid-left+1;
+		int N2 = right-mid;
+
+		int[] L = new int[N1];
+		int[] R = new int[N2];
+		
+		System.arraycopy(arr, left, L, 0, N1);
+		System.arraycopy(arr, mid+1, R, 0, N2);
+
+		int l = 0;
+		int r = 0;
+		int index = left;
+
+		while(l < N1 && r < N2) {
+			if(L[l] <= R[r]) {
+				arr[index++] = L[l++];
+			} else {
+				arr[index++] = R[r++];
+			}
+		}
+
+		while(l < N1) {
+			arr[index++] = L[l++];
+		}
+
+		while(r < N2) {
+			arr[index++] = R[r++];
+		}
+	}
+}
+```
